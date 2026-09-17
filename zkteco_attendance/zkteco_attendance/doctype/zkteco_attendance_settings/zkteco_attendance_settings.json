@@ -1,0 +1,135 @@
+{
+    "actions": [],
+    "creation": "2026-09-06 00:00:00.000000",
+    "doctype": "DocType",
+    "document_type": "Other",
+    "engine": "InnoDB",
+    "field_order": [
+        "enabled",
+        "device_serial_number",
+        "status_section",
+        "last_seen_at",
+        "last_sn_seen",
+        "biotime_section",
+        "biotime_sync_enabled",
+        "biotime_url",
+        "biotime_username",
+        "biotime_password",
+        "biotime_sync_start_date",
+        "biotime_column_break",
+        "biotime_last_sync_at",
+        "biotime_last_sync_status"
+    ],
+    "fields": [
+        {
+            "default": "1",
+            "fieldname": "enabled",
+            "fieldtype": "Check",
+            "label": "Enabled"
+        },
+        {
+            "description": "Serial number of the ZKTeco device, shown on the device under Menu → System Info → Device Info. Leave blank during initial setup/testing to accept pushes from any device; once confirmed, set it to reject spoofed devices.",
+            "fieldname": "device_serial_number",
+            "fieldtype": "Data",
+            "label": "Device Serial Number"
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Status"
+        },
+        {
+            "fieldname": "last_seen_at",
+            "fieldtype": "Datetime",
+            "label": "Last Seen At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "last_sn_seen",
+            "fieldtype": "Data",
+            "label": "Last Serial Number Seen",
+            "read_only": 1
+        },
+        {
+            "fieldname": "biotime_section",
+            "fieldtype": "Section Break",
+            "label": "BioTime API Sync"
+        },
+        {
+            "default": "0",
+            "description": "Pulls attendance transactions from a ZKTeco BioTime server via its REST API on a schedule, instead of (or alongside) receiving direct ADMS pushes from the device above.",
+            "fieldname": "biotime_sync_enabled",
+            "fieldtype": "Check",
+            "label": "Enabled"
+        },
+        {
+            "description": "e.g. https://hr.pcpmukalla.com (no trailing slash)",
+            "fieldname": "biotime_url",
+            "fieldtype": "Data",
+            "label": "BioTime URL"
+        },
+        {
+            "fieldname": "biotime_username",
+            "fieldtype": "Data",
+            "label": "Username"
+        },
+        {
+            "fieldname": "biotime_password",
+            "fieldtype": "Password",
+            "label": "Password"
+        },
+        {
+            "description": "When there is no checkpoint yet (first sync, or after resetting Last Sync At for a newly-mapped employee), only pull transactions from this date onward instead of full history. Leave blank to pull everything.",
+            "fieldname": "biotime_sync_start_date",
+            "fieldtype": "Date",
+            "label": "Only Sync From Date"
+        },
+        {
+            "fieldname": "biotime_column_break",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "biotime_last_sync_at",
+            "fieldtype": "Datetime",
+            "label": "Last Sync At",
+            "read_only": 1
+        },
+        {
+            "fieldname": "biotime_last_sync_status",
+            "fieldtype": "Small Text",
+            "label": "Last Sync Status",
+            "read_only": 1
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "issingle": 1,
+    "links": [],
+    "modified": "2026-09-06 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Zkteco Attendance",
+    "name": "Zkteco Attendance Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "role": "HR Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

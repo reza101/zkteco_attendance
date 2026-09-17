@@ -1,0 +1,2 @@
+include requirements.txt
+recursive-include zkteco_attendance *.json *.js *.css *.html *.py
